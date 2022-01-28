@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>K.K. Radio</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="common.css">
+
+    </head>
+    <body>
+        
+        <div id="header">
+            <h1 id="header">K.K. Radio</h1>
+        </div>
+        
+        <div id="content">
+            <div id="radio">
+                <img id="cover" src="https://dodo.ac/np/images/6/69/Bubblegum_K.K._NH_Texture.png">
+            </div>
+
+            <div id="side">
+                <h2 id="title">K.K. Bubblegum</h2>
+                <div id="controls">
+            
+                    <form>
+            
+                        <input class="material-icons button" type="button" id="play" onclick="togglePlay()" value="play_arrow">
+                        <input class="material-icons button" type="button" id="skip" onclick="skip()" value="skip_next">
+            
+                        <div>
+                            <input type="range" min="0" max="100" value="50" class="slider" id="volume">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <script src="radio.js" async defer></script>
+    </body>
+</html>

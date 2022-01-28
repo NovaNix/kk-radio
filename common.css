@@ -1,0 +1,52 @@
+.header {
+
+}
+
+#content {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    flex-direction: row;
+    justify-content: center;
+    width: 60%;
+    align-items: center;
+    background-color: green;
+}
+
+#side {
+    background-color: rgba(168, 25, 25, 0.466);
+    padding: 10px;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 8px;
+    font-size: 32px;
+}
+
+#volume {
+    padding: 5px;
+}
+
+#radio {
+    border-color: black;
+    background-color: #15539b79;
+}
+
+#title {
+    left: 0;
+    padding: 10px;
+}
+
+#cover {
+    padding: 10px;
+    height: 100%;
+}
