@@ -19,6 +19,9 @@
         <div id="content">
             <div id="radio">
                 <img id="cover" src="https://dodo.ac/np/images/6/69/Bubblegum_K.K._NH_Texture.png">
+                <audio id="player">
+                  Your browser does not support the audio element.
+                  </audio> 
             </div>
 
             <div id="side">
@@ -28,10 +31,10 @@
                     <form>
             
                         <input class="material-icons button" type="button" id="play" onclick="togglePlay()" value="play_arrow">
-                        <input class="material-icons button" type="button" id="skip" onclick="skip()" value="skip_next">
+                        <input class="material-icons button" type="button" id="skip" onclick="skipSong()" value="skip_next">
             
                         <div>
-                            <input type="range" min="0" max="100" value="50" class="slider" id="volume">
+                            <input type="range" min="0" max="100" value="50" class="slider" id="volume" oninput="updateVolume(this)">
                         </div>
                     </form>
                 </div>
