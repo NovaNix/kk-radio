@@ -68,4 +68,8 @@ function updateVolume(slider)
     player.volume = (slider.value / 100);
 }
 
+player.addEventListener('ended', (event) => {
+    loadRandomSong();
+});
+
 loadRandomSong();
