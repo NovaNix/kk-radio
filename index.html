@@ -6,41 +6,55 @@
         <title>K.K. Radio</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="https://dodo.ac/np/images/e/e2/Portable_Radio_%28White%29_NH_Icon.png">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="common.css">
 
     </head>
     <body>
         
-        <div id="header">
+        <div id="header-block">
+            <img id="header-icon" src="https://dodo.ac/np/images/e/e2/Portable_Radio_%28White%29_NH_Icon.png">
             <h1 id="header">K.K. Radio</h1>
         </div>
         
-        <div id="content">
-            <div id="radio">
-                <img id="cover" src="https://dodo.ac/np/images/6/69/Bubblegum_K.K._NH_Texture.png">
-                <audio id="player">
-                  Your browser does not support the audio element.
-                  </audio> 
-            </div>
-
-            <div id="side">
-                <h2 id="title">K.K. Bubblegum</h2>
-                <div id="controls">
-            
-                    <form>
-            
-                        <input class="material-icons button" type="button" id="play" onclick="togglePlay()" value="play_arrow">
-                        <input class="material-icons button" type="button" id="skip" onclick="skipSong()" value="skip_next">
-            
-                        <div>
-                            <input type="range" min="0" max="100" value="50" class="slider" id="volume" oninput="updateVolume(this)">
-                        </div>
-                    </form>
+        <div id="base">
+            <div id="content">
+                <div id="radio">
+                    <img id="cover" src="https://dodo.ac/np/images/6/69/Bubblegum_K.K._NH_Texture.png">
+                    <audio id="player">
+                      Your browser does not support the audio element.
+                      </audio> 
                 </div>
+                
+                <div id="sidebar">
+                    <div id="main-sidebar">
+                        <h2 id="title">K.K. Bubblegum</h2>
+                        <div id="controls">
+                            <div>
+                                <input class="material-icons button" type="button" id="play" onclick="togglePlay()" value="play_arrow">
+                                <input class="material-icons button" type="button" id="skip" onclick="skipSong()" value="skip_next">
+                            </div>
+                                
+                            <div>
+                                <input type="range" min="0" max="100" value="50" class="slider" id="volume" oninput="updateVolume(this)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="bonus">
+                        <input class="material-icons bonus-button" type="button" id="favorite" value="favorite_border">
+                        <input class="bonus-button" type="image" id="kk-toggle" src="icons/kk_icon.png" onclick="toggleKKMode()">
+                    </div>
+
+                </div>
+    
             </div>
+            
+            
         </div>
-        
+
         <script src="radio.js" async defer></script>
+
     </body>
 </html>
