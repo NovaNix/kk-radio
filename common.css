@@ -4,20 +4,41 @@
     --kk-red: #c2695d;
 }
 
+html, body {
+    margin:0;
+    padding:0;    
+    width: 100%;
+    height: 100%;
+}
+
 #header-block {
-    padding-top: 10;
-    padding-left: 10;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    /*! display: flex; */
+    /*! flex-direction: row; */
+    /*! align-items: center; */
+    height: 4em;
+    background-color: lavender;
+    /*! vertical-align: middle; */
 }
 
 #header {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 60px;
-    margin-left: 20px;
-    display: inline;
-    vertical-align: middle;
+    font-family: Trebuchet MS,Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    /*! margin-left: 20px; */
+    display: inline-block;
+    vertical-align: top;
+    /*! text-align: center; */
+    line-height: 2em;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#header-icon {
+
+    margin: 0px 10px;
+    object-fit: contain;
+    width: auto;
+    height: 100%;
+    display: inline-block;
 }
 
 #radio-icon {
@@ -28,19 +49,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 70%;
+    margin: auto;
+    justify-content: center;
 }
 
 #content {
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin: auto;
     flex-direction: row;
     justify-content: center;
-    width: 60%;
+    width: auto;
     align-items: center;
-    /*background-color: green;*/
+    /*! background-color: green; */
 }
 
 #sidebar {
@@ -122,7 +143,7 @@
 #title {
     left: 0;
     padding: 10px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Trebuchet MS,Arial, Helvetica, sans-serif;
 }
 
 #cover {
