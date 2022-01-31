@@ -6,7 +6,11 @@ const songArray = JSON.parse("[{\"song-href\":\"https:\/\/nookipedia.com\/wiki\/
 
 favorite
 loop
-playlist_add
+playlist_add: add song to playlist
+grid_view: show all songs
+auto_awesome
+library_music: change the source of music
+
 */
 
 var songLoaded = false;
