@@ -45,11 +45,53 @@ html, body {
     display: inline;
 }
 
+#meta-controls {
+    position:absolute;
+    margin:10px;
+}
+
+.meta-button {
+    background: transparent;
+    border: none;
+    color: slategray;
+    transition-duration: 0.2s;
+}
+
+.meta-button:hover {
+    color: lightblue;
+}
+
+.meta-button:focus {
+    color: var(--kk-blue);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:focus-within .dropdown-content {
+    display: block;
+}
+
+#song-list {
+    
+}
+
 #base {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 70%;
+    /*! height: 70%; */
     margin: auto;
     justify-content: center;
 }
@@ -62,6 +104,7 @@ html, body {
     width: auto;
     align-items: center;
     /*! background-color: green; */
+    height: 80%;
 }
 
 #sidebar {
@@ -138,6 +181,7 @@ html, body {
 
 #radio {
 
+    height: 100%;
 }
 
 #title {
