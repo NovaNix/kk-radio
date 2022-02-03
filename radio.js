@@ -31,6 +31,18 @@ const volumeSlider = document.getElementById("volume");
 
 const kkToggleButton = document.getElementById("kk-toggle");
 
+// Process song list
+
+const songMap = new Map();
+
+for (let i = 0; i < songArray.length; i++)
+{
+    var song = songArray[i];
+    songMap.set(song.title, song);
+}
+
+console.log("Loaded all songs");
+
 function getRandomSong()
 {
     return songArray[Math.floor(Math.random()*songArray.length)];

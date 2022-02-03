@@ -25,7 +25,12 @@
         <div class="dropdown">
             <input type="button" id="song-view" value="grid_view" class="material-icons meta-button">
             <div id="song-list" class="dropdown-content">
-
+                <template id="song-template" class="song-card">
+                    <p class="song-title">TITLE</p>
+                    <div class="song-cover-container">
+                        <img class="song-cover" src="https://dodo.ac/np/images/6/69/Bubblegum_K.K._NH_Texture.png">
+                    </div>
+                </template>
                 <p>Coming Soon...</p>
             </div>
         </div>
@@ -69,7 +74,7 @@
             </div>
 
             <div id="bonus">
-                <input class="material-icons bonus-button" type="button" id="favorite" value="favorite_border">
+                <input class="material-icons bonus-button favorite" type="button" id="favorite-button" value="favorite_border">
                 <input class="bonus-button" type="image" id="kk-toggle" src="icons/kk_icon.png"
                     onclick="toggleKKMode()">
             </div>

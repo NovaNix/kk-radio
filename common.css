@@ -180,12 +180,12 @@ html, body {
     margin: 10px;
 }
 
-#favorite {
+.favorite {
     background-color: transparent;
     color: slategrey;
 }
 
-#favorite:hover {
+.favorite:hover {
     background-color: transparent; 
     color: lightcoral;
 }
