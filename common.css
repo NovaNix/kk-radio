@@ -112,10 +112,9 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 30%;
+    height: min(12em, 60%);
     width: 15%;
     box-sizing: border-box;
-    /*max-height: 30%;*/
 }
 
 #main-sidebar {
@@ -150,6 +149,7 @@ html, body {
     display: inline-block;
     border-radius: 8px;
     font-size: 32px;
+    vertical-align: middle;
     transition-duration: 0.2s;
     width: 48%;
     height:100%;
@@ -178,6 +178,9 @@ html, body {
     transition-duration: 0.2s;
     border: none;
     margin: 10px;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
 }
 
 .favorite {
