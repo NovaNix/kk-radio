@@ -25,13 +25,17 @@
         <div class="dropdown">
             <input type="button" id="song-view" value="grid_view" class="material-icons meta-button">
             <div id="song-list" class="dropdown-content">
-                <template id="song-template" class="song-card">
-                    <p class="song-title">TITLE</p>
-                    <div class="song-cover-container">
-                        <img class="song-cover" src="https://dodo.ac/np/images/6/69/Bubblegum_K.K._NH_Texture.png">
+
+                <template id="song-template">
+                    <div class="song-card">
+                        <p class="song-title">TITLE</p>
+                        <div class="song-cover-container">
+                            <img class="song-cover" src="https://dodo.ac/np/images/6/69/Bubblegum_K.K._NH_Texture.png">
+                            <input class="material-icons card-button card-play-button" type="button" value="play_arrow" onclick="playSong(this.getAttribute('data-name'))">
+                        </div>
                     </div>
                 </template>
-                <p>Coming Soon...</p>
+
             </div>
         </div>
         <div class="dropdown">
@@ -87,7 +91,8 @@
 
     </footer>
 
-    <script src="radio.js" async="" defer="defer"></script>
+    <script src="songs.js"></script>
+    <script src="radio.js"></script>
 
 
 </body>
