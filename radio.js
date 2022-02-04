@@ -183,8 +183,6 @@ player.addEventListener('ended', (event) => {
     loadRandomSong();
 });
 
-
-
 updateVolume(volumeSlider);
 
 loadRandomSong();
