@@ -19,51 +19,53 @@
 
 <body>
 
-    <div id="header-block">
+    <header>
         <div id="header-title">
             <img id="header-icon" src="https://dodo.ac/np/images/e/e2/Portable_Radio_%28White%29_NH_Icon.png">
             <h1 id="header">K.K. Radio</h1>
         </div>
         
-    </div>
+    </header>
 
     <div id="meta-controls">
+
         <div class="dropdown">
             <input type="button" id="song-view" value="library_music" class="material-icons meta-button">
-            <div id="song-list" class="dropdown-content">
+            <section id="song-list" class="dropdown-content">
 
                 <template id="song-template">
-                    <div class="song-card">
-                        <p class="song-title">TITLE</p>
+                    <article class="song-card">
+                        <h3 class="song-title">TITLE</h3>
                         <div class="song-cover-container">
                             <img class="song-cover" src="https://dodo.ac/np/images/6/69/Bubblegum_K.K._NH_Texture.png">
                             <input class="material-icons card-button card-play-button" type="button" value="play_arrow" onclick="playSong(this.getAttribute('data-name'))">
                         </div>
-                    </div>
+                    </article>
                 </template>
 
-            </div>
+            </section>
         </div>
+
         <div class="dropdown">
             <input type="button" id="radio-source" value="album" class="material-icons meta-button">
-            <div id="source-picker" class="dropdown-content">
+            <section id="source-picker" class="dropdown-content">
 
                 <template id="source-option-template">
-                    <div class="source-option">
+                    <article class="source-option">
                         <button type="button" class="source-option-button" onclick="setSongSource(this.getAttribute('data-name'))"> 
                             <span class="material-icons source-icon">error</span>
                             <span class="source-button-text">TITLE HERE</span>
                         </button>
-                    </div>
+                    </article>
                 </template>
-            </div>
+            </section>
         </div>
 
 
 
     </div>
 
-    <div id="content">
+    <main id="content">
         <div id="radio">
             <img id="cover" src="https://dodo.ac/np/images/6/69/Bubblegum_K.K._NH_Texture.png">
             <audio id="player">
@@ -71,35 +73,31 @@
             </audio>
         </div>
 
-        <div id="sidebar">
-            <div id="main-sidebar">
+        <aside id="sidebar">
+            <section id="main-sidebar">
                 <div id=title-box>
                     <span id = "title-note" class="material-icons">music_note</span>
                     <h2 id="title">K.K. Bubblegum</h2>
                 </div>
                 <div id="controls">
                     <div id="audio-controls">
-                        <input class="material-icons control-button" type="button" id="play" onclick="togglePlay()"
-                            value="play_arrow">
-                        <input class="material-icons control-button" type="button" id="skip" onclick="skipSong()"
-                            value="skip_next">
+                        <input class="material-icons control-button" type="button" id="play" onclick="togglePlay()" value="play_arrow">
+                        <input class="material-icons control-button" type="button" id="skip" onclick="skipSong()" value="skip_next">
                     </div>
 
-                    <input type="range" min="0" max="100" value="50" class="slider" id="volume"
-                        oninput="updateVolume(this)">
+                    <input type="range" min="0" max="100" value="50" class="slider" id="volume" oninput="updateVolume(this)">
 
                 </div>
-            </div>
+            </section>
 
             <div id="bonus">
                 <input class="material-icons bonus-button favorite" type="button" id="favorite-button" value="favorite_border">
-                <input class="bonus-button" type="image" id="kk-toggle" src="icons/kk_icon.png"
-                    onclick="toggleKKMode()">
+                <input class="bonus-button" type="image" id="kk-toggle" src="icons/kk_icon.png" onclick="toggleKKMode()">
             </div>
 
-        </div>
+        </aside>
 
-    </div>
+    </main>
 
     <footer>
 

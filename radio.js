@@ -24,8 +24,6 @@ var currentSong;
 var playing = false;
 var kkMode = false;
 
-const content = document.getElementById("content");
-
 const title = document.getElementById("title");
 const cover = document.getElementById("cover");
 const player = document.getElementById("player");

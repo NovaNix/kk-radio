@@ -12,21 +12,16 @@ html, body {
     height: 100%;
 }
 
-#header-block {
-    /*! display: flex; */
-    /*! flex-direction: row; */
-    /*! align-items: center; */
+header {
     height: 4em;
     background-color: var(--kk-blue);
     display: flex;
     align-items: center;
     box-shadow: 0px 5px 11px 0px rgba(0,0,0,0.7);
-    /*! vertical-align: middle; */
 }
 
 #header-title {
     height: 85%;
-    /*! background-color: #305f8d; */
     padding: 4px;
     box-sizing: border-box;
     margin-left: 5px;
@@ -36,10 +31,8 @@ html, body {
 #header {
     font-family: var(--default-fonts);
     font-size: 2em;
-    /*! margin-left: 20px; */
     display: inline-block;
     vertical-align: top;
-    /*! text-align: center; */
     line-height: 1.75em;
     margin-top: auto;
     margin-bottom: auto;
@@ -243,16 +236,7 @@ html, body {
     color: white;
 }
 
-#base {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /*! height: 70%; */
-    margin: auto;
-    justify-content: center;
-}
-
-#content {
+main {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -360,12 +344,9 @@ html, body {
 }
 
 #volume {
-    /*! padding: 5px; */
     width: 100%;
     height: 33%;
     align-self: center;
-    /*margin-top: 20px;
-    margin-bottom: 20px;*/
     box-sizing: border-box;
 }
 
@@ -377,15 +358,12 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: fit-content;
     
 }
 
 #title {
-    /*! padding: 10px; */
     font-family: var(--default-fonts);
-    /*font-size: 2em;
-    line-height: 1em;*/
     font-size: 1.5em;
     font-style: italic;
     width: 100%;
@@ -446,12 +424,10 @@ footer {
 /* Mobile Support */
 
 @media screen and (max-width: 620px) {
-    #content {
+    main {
       flex-direction: column;
-      /*justify-content: flex-start;*/
       align-items: center;
       padding-top: 40px; /* make room for the meta buttons */
-      /*justify-content: space-around;*/
     }
   
     #radio {
@@ -481,7 +457,6 @@ footer {
     #audio-controls {
         display: flex;
         justify-content: space-around;
-        /*align-items: center;*/
     }
     
     #title {
