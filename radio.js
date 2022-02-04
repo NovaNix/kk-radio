@@ -8,11 +8,20 @@ playlist_add: add song to playlist
 grid_view: show all songs
 auto_awesome
 library_music: change the source of music
+settings
+
+moods:
+mood Good!
+thunderstorm Grumpy
+king_bed Lazy
+sentiment_dissatisfied A little sad
+sentiment_neutral Hard to Say
 
 */
 
 // An array containing all of the songs the radio should play. By default it is set to all songs
 var songSource = songArray;
+const songSources = new Map();
 
 var songLoaded = false;
 
@@ -42,7 +51,7 @@ const songMap = new Map();
 
 for (let i = 0; i < songArray.length; i++)
 {
-    var song = songArray[i];
+    let song = songArray[i];
     songMap.set(song.name, song);
 }
 
@@ -55,8 +64,8 @@ const songCardTemplate = document.getElementById("song-template");
 
 for (let i = 0; i < songArray.length; i++)
 {
-    var song = songArray[i];
-    var songCard = songCardTemplate.content.firstElementChild.cloneNode(true);
+    let song = songArray[i];
+    let songCard = songCardTemplate.content.firstElementChild.cloneNode(true);
 
     songCard.id = "song-card-" + song.num;
 
@@ -75,19 +84,140 @@ for (let i = 0; i < songArray.length; i++)
 
 console.log("Populated song list container!");
 
-function getRandomSong()
+// Set up song sources
+
+const moods = {
+    good: [],
+    grumpy: [],
+    lazy: [],
+    sad: [],
+    hardToSay: []
+};
+
+// Populate mood arrays
+for (let i = 0; i < songArray.length; i++)
 {
-    return songSource[Math.floor(Math.random()*songArray.length)];
+    switch (songArray[i].mood)
+    {
+        case "I feel good!":
+            moods.good.push(songArray[i]);
+            break;
+        case "A little grumpy...":
+            moods.grumpy.push(songArray[i]);
+            break;
+        case "Laid-back":
+            moods.lazy.push(songArray[i]);
+            break;
+        case "A little blue...":
+            moods.sad.push(songArray[i]);
+            break;
+        case "It's hard to say":
+            moods.hardToSay.push(songArray[i]);
+            break;
+    }
 }
 
+// TODO Load Favorites
+
+songSources.set("all", songArray);
+
+songSources.set("good", moods.good);
+songSources.set("grumpy", moods.grumpy);
+songSources.set("lazy", moods.lazy);
+songSources.set("sad", moods.sad);
+songSources.set("hardToSay", moods.hardToSay);
+
+console.log("Added songs to sources:");
+console.log("Good: " + moods.good.length);
+console.log("Grumpy: " + moods.grumpy.length);
+console.log("Lazy: " + moods.lazy.length);
+console.log("Sad: " + moods.sad.length);
+console.log("Hard to say: " + moods.hardToSay.length);
+
+// Populate song source dropdown
+// This is done dynamicly so if I decide to add playlists itll be easy to do so
+
+const sourcePicker = document.getElementById("source-picker"); 
+const sourceOptionTemplate = document.getElementById("source-option-template");
+
+function createSongSourceButton(sourceName, sourceTitle, sourceIcon)
+{
+    let option = sourceOptionTemplate.content.firstElementChild.cloneNode(true);
+
+    option.id = "source-option-" + sourceName;
+
+    option.getElementsByClassName("source-option-button")[0].setAttribute("data-name", sourceName);
+
+    option.getElementsByClassName("source-icon")[0].innerHTML = sourceIcon;
+    option.getElementsByClassName("source-button-text")[0].innerHTML = sourceTitle;
+
+    sourcePicker.appendChild(option);
+}
+
+createSongSourceButton("all", "All Songs", "radio");
+
+createSongSourceButton("good", "I feel good!", "mood");
+createSongSourceButton("grumpy", "A little grumpy...", "thunderstorm");
+createSongSourceButton("lazy", "Laid-back", "king_bed");
+createSongSourceButton("sad", "A little blue...", "sentiment_dissatisfied");
+createSongSourceButton("hardToSay", "It's hard to say", "sentiment_neutral");
+
+function setSongSource(name)
+{
+    let source = songSources.get(name);
+
+    if (source != null)
+    {
+        songSource = source;
+
+        // Update the option buttons so the right one is highlighted 
+
+        let optionButton = document.getElementById("source-option-" + name);
+
+        let optionButtons = document.getElementsByClassName("source-option");
+
+        if (optionButton != null)
+        {
+            for (let i = 0; i < optionButtons.length; i++)
+            {
+                optionButtons[i].classList.remove("current-source");
+            }
+
+            optionButton.classList.add("current-source");
+        }
+
+        else
+        {
+            console.warn("Successfully set song source to '" + name + "' but there was no corresponding option button!");
+        }
+
+        // Update the current song so it is part of the new source list
+
+        loadRandomSong();
+    }
+
+    else
+    {
+        console.error("Failed to find song source: " + name);
+    }
+}
+
+// Returns a random song from the current song source
+function getRandomSong()
+{
+    return songSource[Math.floor(Math.random() * songSource.length)];
+}
+
+// Picks a random song from the song source and plays it if the player is already playing
 function loadRandomSong()
 {
     playSong(getRandomSong().name);
 }
 
-function playSong(name)
+// Loads the song (sets the title, cover, and audio source). Does not play the song
+function loadSong(name)
 {
-    var song = songMap.get(name);
+    let song = songMap.get(name);
 
     if (song != null)
     {
@@ -101,21 +231,27 @@ function playSong(name)
             player.src = currentSong.live;
         }
 
-        else {
+        else 
+        {
             player.src = currentSong.aircheck;
         }
 
         songLoaded = true;
-
-        if (playing) 
-        {
-            player.play();
-        }
     }
 
     else
     {
         console.error("Failed to find song: " + name);
+    }
+}
+
+function playSong(name)
+{
+    loadSong(name);
+
+    if (playing) 
+    {
+        player.play();
     }
 }
 
@@ -156,7 +292,7 @@ function toggleKKMode()
 {
     kkMode = !kkMode;
 
-    var currentPlaybackTime = player.currentTime;
+    let currentPlaybackTime = player.currentTime;
 
     if (kkMode)
     {
@@ -182,6 +318,8 @@ function toggleKKMode()
 player.addEventListener('ended', (event) => {
     loadRandomSong();
 });
+
+setSongSource("all");
 
 updateVolume(volumeSlider);
 

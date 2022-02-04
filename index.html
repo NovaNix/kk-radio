@@ -41,8 +41,15 @@
         <div class="dropdown">
             <input type="button" id="radio-source" value="library_music" class="material-icons meta-button">
             <div id="source-picker" class="dropdown-content">
-                <input type="button" id="random-radio" value="Random"> <br>
-                <input type="button" id="favorite-radio" value="Favorites">
+
+                <template id="source-option-template">
+                    <div class="source-option">
+                        <button type="button" class="source-option-button" onclick="setSongSource(this.getAttribute('data-name'))"> 
+                            <span class="material-icons source-icon">error</span>
+                            <span class="source-button-text">TITLE HERE</span>
+                        </button>
+                    </div>
+                </template>
             </div>
         </div>
 
