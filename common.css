@@ -2,6 +2,7 @@
     --kk-brown: #ad8463;
     --kk-blue: #5d8fc2;
     --kk-red: #c2695d;
+    --default-fonts: 'Nunito',Trebuchet MS,Arial, Helvetica, sans-serif;
 }
 
 html, body {
@@ -17,28 +18,45 @@ html, body {
     /*! align-items: center; */
     height: 4em;
     background-color: var(--kk-blue);
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 5px 11px 0px rgba(0,0,0,0.7);
     /*! vertical-align: middle; */
 }
 
+#header-title {
+    height: 85%;
+    /*! background-color: #305f8d; */
+    padding: 4px;
+    box-sizing: border-box;
+    margin-left: 5px;
+    border-radius: 5px;
+}
+
 #header {
-    font-family: Trebuchet MS,Arial, Helvetica, sans-serif;
+    font-family: var(--default-fonts);
     font-size: 2em;
     /*! margin-left: 20px; */
     display: inline-block;
     vertical-align: top;
     /*! text-align: center; */
-    line-height: 2em;
+    line-height: 1.75em;
     margin-top: auto;
     margin-bottom: auto;
+    margin-left: 5px;
+    float: left;
+    color: white;
+    text-shadow: 2px 2px 2px #000000;
 }
 
 #header-icon {
 
-    margin: 0px 10px;
+    margin-right: 5px;
     object-fit: contain;
     width: auto;
     height: 100%;
     display: inline-block;
+    float: left;
 }
 
 #radio-icon {
@@ -75,7 +93,7 @@ html, body {
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
     z-index: 1;
 }
 
@@ -115,7 +133,7 @@ html, body {
     line-height: 1em;
     height: 0.5em;
     font-size: 100%;
-    font-family: Trebuchet MS,Arial, Helvetica, sans-serif;
+    font-family: var(--default-fonts);
     text-align: center;
     
     
@@ -178,14 +196,15 @@ html, body {
 }
 
 .source-option-button {
-    width: 90%;
+    width: 100%;
     display: flex;
     align-items: center;
     padding: 2px;
     box-sizing: border-box;
     border: none;
     background-color: lightblue;
-    margin: 2px;
+    margin-top: 2px;
+    margin-bottom: 2px;
     border-radius: 5px;
 }
 
@@ -199,7 +218,7 @@ html, body {
     float: left;
     font-size: 1em;
     margin-left: 4px;
-    font-family: Trebuchet MS,Arial, Helvetica, sans-serif;
+    font-family: var(--default-fonts);
     
     vertical-align: middle;
 }
@@ -252,6 +271,7 @@ html, body {
     height: 25%;
     min-height: 12em;
     width: 15%;
+    min-width: fit-content;
     box-sizing: border-box;
 }
 
@@ -292,6 +312,7 @@ html, body {
     width: 48%;
     height:100%;
     box-sizing: border-box;
+    
 }
 
 .control-button:hover {
@@ -357,19 +378,28 @@ html, body {
     justify-content: center;
     align-items: center;
     height: 100%;
+    
 }
 
 #title {
     /*! padding: 10px; */
-    font-family: Trebuchet MS,Arial, Helvetica, sans-serif;
+    font-family: var(--default-fonts);
     /*font-size: 2em;
     line-height: 1em;*/
     font-size: 1.5em;
+    font-style: italic;
     width: 100%;
-    margin: 10px;
-    
-    
+    margin: 10px 10px 10px 10px;
+    color: white;
+    text-shadow: 2px 2px 2px #000000;
     box-sizing: border-box;
+    
+
+}
+
+#title-note {
+    font-size: 2.5em;
+    display: none;
 
 }
 
@@ -418,12 +448,17 @@ footer {
 @media screen and (max-width: 620px) {
     #content {
       flex-direction: column;
+      /*justify-content: flex-start;*/
+      align-items: center;
+      padding-top: 40px; /* make room for the meta buttons */
       /*justify-content: space-around;*/
     }
   
     #radio {
-        height: 50%;
-        width: 80%;
+        height: fit-content;
+        max-height: 60%;
+        
+        min-width: 80%;
         margin: 5px;
     }
     
@@ -433,7 +468,9 @@ footer {
     
     #sidebar {
         width: 100%;
-        height: 40%;
+        max-height: 40%;
+        height: fit-content;
+        margin-top: 5px;
     }
     
     #main-sidebar {
@@ -463,5 +500,24 @@ footer {
     
     .song-title {
         font-size: 1em;
+    }
+    
+    #source-picker {
+        background: white;
+        width: 80vw;
+        max-height: 60vh;
+        padding: 5px;
+        border-color: black;
+        border-width: 3px;
+        border-style: solid;
+        border-radius: 10px;
+    }
+    
+    .source-icon {
+        
+    }
+    
+    .source-button-text {
+        font-size: 2em;
     }
 }

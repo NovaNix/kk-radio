@@ -5,17 +5,11 @@
 favorite
 loop
 playlist_add: add song to playlist
-grid_view: show all songs
+playlist_play: icon for playlist source
 auto_awesome
-library_music: change the source of music
 settings
 
-moods:
-mood Good!
-thunderstorm Grumpy
-king_bed Lazy
-sentiment_dissatisfied A little sad
-sentiment_neutral Hard to Say
+shuffle_on
 
 */
 

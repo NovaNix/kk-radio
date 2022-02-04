@@ -10,6 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="https://dodo.ac/np/images/e/e2/Portable_Radio_%28White%29_NH_Icon.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700;900&display=swap" rel="stylesheet">  
     <link rel="stylesheet" href="common.css">
 
 </head>
@@ -17,13 +20,16 @@
 <body>
 
     <div id="header-block">
-        <img id="header-icon" src="https://dodo.ac/np/images/e/e2/Portable_Radio_%28White%29_NH_Icon.png">
-        <h1 id="header">K.K. Radio</h1>
+        <div id="header-title">
+            <img id="header-icon" src="https://dodo.ac/np/images/e/e2/Portable_Radio_%28White%29_NH_Icon.png">
+            <h1 id="header">K.K. Radio</h1>
+        </div>
+        
     </div>
 
     <div id="meta-controls">
         <div class="dropdown">
-            <input type="button" id="song-view" value="grid_view" class="material-icons meta-button">
+            <input type="button" id="song-view" value="library_music" class="material-icons meta-button">
             <div id="song-list" class="dropdown-content">
 
                 <template id="song-template">
@@ -39,7 +45,7 @@
             </div>
         </div>
         <div class="dropdown">
-            <input type="button" id="radio-source" value="library_music" class="material-icons meta-button">
+            <input type="button" id="radio-source" value="album" class="material-icons meta-button">
             <div id="source-picker" class="dropdown-content">
 
                 <template id="source-option-template">
@@ -68,6 +74,7 @@
         <div id="sidebar">
             <div id="main-sidebar">
                 <div id=title-box>
+                    <span id = "title-note" class="material-icons">music_note</span>
                     <h2 id="title">K.K. Bubblegum</h2>
                 </div>
                 <div id="controls">
