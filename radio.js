@@ -4,17 +4,21 @@
 
 favorite
 loop
+repeat_on
 playlist_add: add song to playlist
 playlist_play: icon for playlist source
 auto_awesome
 settings
 
+shuffle
 shuffle_on
-
+pets
 */
 
 // An array containing all of the songs the radio should play. By default it is set to all songs
 var songSource = songArray;
+var songSourceName = "all";
+
 const songSources = new Map();
 
 var songLoaded = false;
@@ -32,6 +36,7 @@ const playButton = document.getElementById("play");
 const volumeSlider = document.getElementById("volume");
 
 const kkToggleButton = document.getElementById("kk-toggle");
+const favoriteButton = document.getElementById("favorite-button");
 
 // Sort the song array
 
@@ -40,11 +45,13 @@ songArray.sort(function(a, b){return a.num - b.num});
 // Process all of the songs into a map that stores the songs by name
 
 const songMap = new Map();
+const songIDMap = new Map();
 
 for (let i = 0; i < songArray.length; i++)
 {
     let song = songArray[i];
     songMap.set(song.name, song);
+    songIDMap.set(song.num, song);
 }
 
 console.log("Loaded all songs");
@@ -53,6 +60,8 @@ console.log("Loaded all songs");
 
 const songCardList = document.getElementById("song-list"); 
 const songCardTemplate = document.getElementById("song-template");
+
+const songCards = [];
 
 for (let i = 0; i < songArray.length; i++)
 {
@@ -69,9 +78,14 @@ for (let i = 0; i < songArray.length; i++)
     songCard.setAttribute("data-name", song.name);
     songCard.getElementsByClassName("card-play-button")[0].setAttribute("data-name", song.name);
 
+    // Attach the song card to the song object for easy access
+
+    song.songCard = songCard;
+
     // Add card to the card list
 
     songCardList.appendChild(songCard);
+    songCards[i] = songCard;
 }
 
 console.log("Populated song list container!");
@@ -127,11 +141,13 @@ console.log("Sad: " + moods.sad.length);
 console.log("Hard to say: " + moods.hardToSay.length);
 
 // Populate song source dropdown
-// This is done dynamicly so if I decide to add playlists itll be easy to do so
 
 const sourcePicker = document.getElementById("source-picker"); 
 const sourceOptionTemplate = document.getElementById("source-option-template");
 
+// Creates a songSource button for the song source menu
+// Automatically adds it to the menu
+// Returns the songSource button created
 function createSongSourceButton(sourceName, sourceTitle, sourceIcon)
 {
     let option = sourceOptionTemplate.content.firstElementChild.cloneNode(true);
@@ -143,7 +159,18 @@ function createSongSourceButton(sourceName, sourceTitle, sourceIcon)
     option.getElementsByClassName("source-icon")[0].innerHTML = sourceIcon;
     option.getElementsByClassName("source-button-text")[0].innerHTML = sourceTitle;
 
+    option.getElementsByClassName("source-button-length")[0].innerHTML = songSources.get(sourceName).length;
+
+    // Add the currently selected tag if the current source matches the source of the button
+
+    if (sourceName == songSourceName)
+    {
+        option.classList.add("current-source");
+    }
+
     sourcePicker.appendChild(option);
+
+    return option;
 }
 
 createSongSourceButton("all", "All Songs", "radio");
@@ -160,7 +187,15 @@ function setSongSource(name)
 
     if (source != null)
     {
+
+        if (source.length == 0)
+        {
+            alert("You can't play an empty song list!");
+            return;
+        }
+
         songSource = source;
+        songSourceName = name;
 
         // Update the option buttons so the right one is highlighted 
 
@@ -192,6 +227,18 @@ function setSongSource(name)
     {
         console.error("Failed to find song source: " + name);
     }
+}
+
+function getSongArray(idArray)
+{
+    let songArray = [];
+
+    for (let i = 0; i < idArray.length; i++)
+    {
+        songArray[i] = songIDMap.get(idArray[i]);
+    }
+
+    return songArray;
 }
 
 // Returns a random song from the current song source
@@ -226,6 +273,20 @@ function loadSong(name)
         else 
         {
             player.src = currentSong.aircheck;
+        }
+
+        // Update the favorited icon
+
+        if (isFavorited(currentSong))
+        {
+            favoriteButton.classList.add("favorited");
+            favoriteButton.value = "favorite";
+        }
+
+        else
+        {
+            favoriteButton.classList.remove("favorited");
+            favoriteButton.value = "favorite_border";
         }
 
         songLoaded = true;
@@ -311,8 +372,3 @@ player.addEventListener('ended', (event) => {
     loadRandomSong();
 });
 
-setSongSource("all");
-
-updateVolume(volumeSlider);
-
-loadRandomSong();

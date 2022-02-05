@@ -53,8 +53,11 @@
                 <template id="source-option-template">
                     <article class="source-option">
                         <button type="button" class="source-option-button" onclick="setSongSource(this.getAttribute('data-name'))"> 
-                            <span class="material-icons source-icon">error</span>
-                            <span class="source-button-text">TITLE HERE</span>
+                            <div class="source-button-label">
+                                <span class="material-icons source-icon">error</span>
+                                <span class="source-button-text">TITLE HERE</span>
+                            </div>
+                            <span class="source-button-length">#</span>
                         </button>
                     </article>
                 </template>
@@ -91,7 +94,7 @@
             </section>
 
             <div id="bonus">
-                <input class="material-icons bonus-button favorite" type="button" id="favorite-button" value="favorite_border">
+                <input class="material-icons bonus-button favorite" type="button" id="favorite-button" value="favorite_border" onclick="toggleFavorite(currentSong)">
                 <input class="bonus-button" type="image" id="kk-toggle" src="icons/kk_icon.png" onclick="toggleKKMode()">
             </div>
 
@@ -105,7 +108,8 @@
 
     <script src="songs.js"></script>
     <script src="radio.js"></script>
-
+    <script src="playlists.js"></script>
+    <script src="start.js"></script>
 
 </body>
 

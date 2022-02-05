@@ -2,6 +2,7 @@
     --kk-brown: #ad8463;
     --kk-blue: #5d8fc2;
     --kk-red: #c2695d;
+    --kk-yellow: #fff563;
     --default-fonts: 'Nunito',Trebuchet MS,Arial, Helvetica, sans-serif;
 }
 
@@ -86,6 +87,8 @@ header {
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
+    transition: 0.2s;
+    height: 0;
     /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
     z-index: 1;
 }
@@ -97,7 +100,7 @@ header {
 #song-list {
     overflow: auto;
     width: 33vw;
-    height: calc(100vh - 11em);
+    
     flex-wrap: wrap;
     padding: 10px;
     background-color: lightblue;
@@ -110,6 +113,7 @@ header {
 
 .dropdown:focus-within #song-list {
     display: flex;
+    height: calc(100vh - 11em);
 }
 
 .song-card {
@@ -177,15 +181,17 @@ header {
 #source-picker {
     background: transparent;
     overflow: auto;
-    max-height: 50vh;
-    box-shadow: 0;
     
+    box-shadow: 0;
+    height: 0;
     flex-direction: column;
     align-items: stretch;
 }
 
 .dropdown:focus-within #source-picker {
     display: flex;
+    height: auto;
+    max-height: 50vh;
 }
 
 .source-option-button {
@@ -203,17 +209,40 @@ header {
 
 .source-icon {
     float: left;
+    display: inline-block;
     font-size: 1.75em;
     vertical-align: middle;
 }
 
+.source-button-label {
+    width: calc(100% - 3ch);
+    display: flex;
+    align-items: center;
+}
+
 .source-button-text {
     float: left;
+    text-align: left;
+    display: inline-block;
     font-size: 1em;
     margin-left: 4px;
+    
     font-family: var(--default-fonts);
     
     vertical-align: middle;
+}
+
+.source-button-length {
+    font-size: 0.9em;
+    display: inline-block;
+    text-align: right;
+    width: 3ch;
+    font-style: italic;
+    margin-right: 5px;
+
+    vertical-align: middle;
+    
+    font-family: var(--default-fonts);
 }
 
 .current-source .source-option-button {
@@ -234,6 +263,10 @@ header {
 
 .current-source .source-icon {
     color: white;
+}
+
+.current-source .source-button-length {
+    color: var(--kk-yellow);
 }
 
 main {
@@ -334,6 +367,10 @@ main {
 .favorite:hover {
     background-color: transparent; 
     color: lightcoral;
+}
+
+.favorited {
+    color: firebrick;
 }
 
 #kk-toggle {
