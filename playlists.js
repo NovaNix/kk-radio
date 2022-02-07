@@ -80,11 +80,13 @@ function toggleFavorite(song)
 {
     if (isFavorited(song))
     {
+        console.log("Unfavorited song: " + song.name);
         removeSongFromPlaylist(song.name, favorites);
     }
 
     else
     {
+        console.log("Favorited song: " + song.name);
         addSongToPlaylist(song.name, favorites);
     }
 
@@ -94,6 +96,8 @@ function toggleFavorite(song)
 function favoritesUpdated(song)
 {
     // Update the main favorite button
+
+    updateSongCard(song);
 
     if (isFavorited(currentSong)) 
     {
@@ -105,6 +109,23 @@ function favoritesUpdated(song)
     {
         favoriteButton.classList.remove("favorited");
         favoriteButton.value = "favorite_border";
+    }
+}
+
+function updateSongCard(song)
+{
+    let songCard = song.songCard;
+
+    let songCardFavoriteButton = songCard.getElementsByClassName("card-favorite-button")[0];
+
+    if (isFavorited(song))
+    {
+        songCardFavoriteButton.classList.add("favorited");
+    }
+
+    else
+    {
+        songCardFavoriteButton.classList.remove("favorited");
     }
 }
 
@@ -235,6 +256,13 @@ function refreshPlaylists()
     }
 
     registerPlaylist(favorites);
+
+    // Update the song card favorites buttons
+
+    for (let i = 0; i < songArray.length; i++)
+    {
+        updateSongCard(songArray[i]);
+    }
 
     // Process the playlists
 

@@ -176,6 +176,22 @@ header {
     font-size: 48px;
 }
 
+.card-favorite-button {
+    left: 5px;
+    font-size: 28px; 
+}
+
+.card-favorite-button:hover {
+    font-size: 28px;
+    color: lightcoral;
+    transition-duration: 0.2s;
+}
+
+.card-favorite-button.favorited {
+    opacity: 1;
+}
+
+
 /* Source Control Buttons */
 
 #source-picker {
@@ -508,6 +524,10 @@ footer {
     .card-button {
         font-size: 35px;
         opacity: 100;
+    }
+    
+    .card-favorite-button {
+        font-size: 28px;
     }
     
     .song-title {

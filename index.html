@@ -39,6 +39,7 @@
                         <div class="song-cover-container">
                             <img class="song-cover" src="https://dodo.ac/np/images/6/69/Bubblegum_K.K._NH_Texture.png">
                             <input class="material-icons card-button card-play-button" type="button" value="play_arrow" onclick="playSong(this.getAttribute('data-name'))">
+                            <input class="material-icons card-button card-favorite-button" type="button" value="favorite" onclick="toggleFavorite(songMap.get(this.getAttribute('data-name')))">
                         </div>
                     </article>
                 </template>

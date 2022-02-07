@@ -61,6 +61,7 @@ console.log("Loaded all songs");
 const songCardList = document.getElementById("song-list"); 
 const songCardTemplate = document.getElementById("song-template");
 
+const songCardMap = new Map();
 const songCards = [];
 
 for (let i = 0; i < songArray.length; i++)
@@ -77,6 +78,7 @@ for (let i = 0; i < songArray.length; i++)
 
     songCard.setAttribute("data-name", song.name);
     songCard.getElementsByClassName("card-play-button")[0].setAttribute("data-name", song.name);
+    songCard.getElementsByClassName("card-favorite-button")[0].setAttribute("data-name", song.name);
 
     // Attach the song card to the song object for easy access
 
@@ -122,8 +124,6 @@ for (let i = 0; i < songArray.length; i++)
             break;
     }
 }
-
-// TODO Load Favorites
 
 songSources.set("all", songArray);
 
