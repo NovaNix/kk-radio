@@ -1,4 +1,5 @@
-# K.K. Radio
+# [K.K. Radio](https://novanix.github.io/kk-radio/)
+
 
 Listen to random K.K. Slider music in your browser!
 
