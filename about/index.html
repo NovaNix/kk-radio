@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>About</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../common.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <button type="button" onclick="location.href = '../';" id="header-title">
+                <img id="header-icon" src="https://dodo.ac/np/images/e/e2/Portable_Radio_%28White%29_NH_Icon.png">
+                <h1 id="header">K.K. Radio</h1>
+            </button>
+            
+        </header>
+
+        <main>
+            <details>
+                <summary>Why did you make this website?</summary>
+                When I started playing Animal Crossing one my favorite features was the radio that played random K.K. slider songs. 
+                I also heavily enjoyed collecting as many K.K. songs as I could. For a while I had the desire to recreate the in-game radios in real life
+                With this idea in mind, when I started learning web development I thought it would be a fun test project.
+            </details>
+
+            <details>
+                <summary>Where did you get the assets from?</summary>
+                All of the data used in the projet is scraped from Nookipedia. All of the images, audio, etc are all owned by Nintendo.
+                The project does not actually store any of these assets server side, theyre all linked back to the locations stored on Nookipedia's servers.
+            </details>
+
+            <details>
+                <summary>Why didn't you use the Nookipedia API to get the assets?</summary>
+                The Nookipedia API lacks access to the music used in the game, so web-scraping was necessary. 
+                Additionally their api is better suited for server side applications, which this is not. 
+                
+                I could maybe go through their media api thing but they've stated that the music layout is inconsistant and will likely break in the future, so I decided to go the easy route and just scrape the information.
+
+                If someone from Nookipedia finds this project and knows a better solution, I'll gladly use it.
+            </details>
+            
+            
+        </main>
+
+        <footer>
+            <p>Data scraped from <a href="https://nookipedia.com/wiki/Main_Page">Nookipedia</a></p>
+        </footer>
+        
+    </body>
+</html>
