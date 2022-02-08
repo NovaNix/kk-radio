@@ -6,6 +6,11 @@
         <title>About</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="https://dodo.ac/np/images/e/e2/Portable_Radio_%28White%29_NH_Icon.png">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../common.css">
         <link rel="stylesheet" href="style.css">
     </head>
@@ -19,30 +24,42 @@
         </header>
 
         <main>
-            <details>
-                <summary>Why did you make this website?</summary>
-                When I started playing Animal Crossing one my favorite features was the radio that played random K.K. slider songs. 
-                I also heavily enjoyed collecting as many K.K. songs as I could. For a while I had the desire to recreate the in-game radios in real life
-                With this idea in mind, when I started learning web development I thought it would be a fun test project.
-            </details>
+            <article>
+                <h1>About</h1>
+        
+                <details>
+                    <summary>Why did you make this website?</summary>
+                    <p>
+                        When I started playing Animal Crossing one my favorite features was the radio that played random K.K. slider
+                        songs. I also heavily enjoyed collecting as many K.K. songs as I could. For a while I had the desire to recreate the in-game radios in real life. <br> <br>
+                    
+                        With this idea in mind, when I started learning web development I thought it would be a fun test project.
+                    </p>
+                </details>
+        
+                <details>
+                    <summary>Where did you get the assets from?</summary>
+                    <p>
+                        All of the data used in the projet is scraped from Nookipedia. <br>
+                        All of the images, audio, etc are all owned by Nintendo. <br> <br>
 
-            <details>
-                <summary>Where did you get the assets from?</summary>
-                All of the data used in the projet is scraped from Nookipedia. All of the images, audio, etc are all owned by Nintendo.
-                The project does not actually store any of these assets server side, theyre all linked back to the locations stored on Nookipedia's servers.
-            </details>
-
-            <details>
-                <summary>Why didn't you use the Nookipedia API to get the assets?</summary>
-                The Nookipedia API lacks access to the music used in the game, so web-scraping was necessary. 
-                Additionally their api is better suited for server side applications, which this is not. 
-                
-                I could maybe go through their media api thing but they've stated that the music layout is inconsistant and will likely break in the future, so I decided to go the easy route and just scrape the information.
-
-                If someone from Nookipedia finds this project and knows a better solution, I'll gladly use it.
-            </details>
-            
-            
+                        The project does not actually store any of these assets server side, theyre all linked back to the locations stored on Nookipedia's servers.
+                    </p>
+                </details>
+        
+                <details>
+                    <summary>Why didn't you use the Nookipedia API to get the assets?</summary>
+                    <p>
+                        The Nookipedia API lacks access to the music used in the game, so web-scraping was necessary.
+                        Additionally their api is better suited for server side applications, which this is not. <br> <br>
+        
+                        I could maybe go through their media api thing but they've stated that the music layout is inconsistant and
+                        will likely break in the future, so I decided to go the easy route and just scrape the information. <br> <br>
+        
+                        If someone from Nookipedia finds this project and knows a better solution, I'll gladly use it.
+                    </p>
+                </details>
+            </article>
         </main>
 
         <footer>
