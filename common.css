@@ -13,6 +13,10 @@ html, body {
     height: 100%;
 }
 
+input, button {
+    cursor: pointer;
+}
+
 header {
     height: 4em;
     background-color: var(--kk-blue);
@@ -104,7 +108,7 @@ header {
     
     flex-wrap: wrap;
     padding: 10px;
-    background-color: lightblue;
+    background-color: var(--kk-blue);
     border: 3px solid black;
     border-radius: 10px;
     align-items: center;
@@ -119,21 +123,39 @@ header {
 
 .song-card {
     width: calc(33% - 10px);
-    background-color: var(--kk-blue);
+    background-color: transparent;
     box-sizing: border-box;
-    border: 2px solid black;
-    border-radius: 10px 10px 0 0;
+    position: relative;
     margin: 5px;
+}
+
+.song-card:hover {
+    transform: scale(95%);
 }
 
 .song-title {
     font-size: 1.125em;
     line-height: 1em;
-    height: 0.5em;
-    font-size: 100%;
     font-family: var(--default-fonts);
     text-align: center;
+    position: absolute;
+    z-index: 2;
+    opacity: 1;
+    margin-top: 10px;
+    background-color: white;
+    padding: 5px;
+    width: 60%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 10px;
+    border: 2px solid black;
+    opacity: 0;
+    transition-duration: 0.1s;
     
+}
+
+.song-card:hover .song-title {
+    opacity: 1;
     
 }
 
@@ -150,9 +172,10 @@ header {
     height: auto;
     object-fit: contain;
     border-style: solid;
-    border-width: 2px 0px 0px 0px;
+    border-width: 0;
     border-color: black;
     display: block;
+    border-radius: 10px;
 }
 
 .card-button {
@@ -534,6 +557,29 @@ footer p {
     
     #song-list {
         width: 90vw;
+    }
+    
+    .song-card {
+        border: 2px solid black;
+        border-radius: 10px 10px 0 0;
+        background-color: lightblue;
+    }
+    
+    .song-title {
+        opacity: 1;
+        position: static;
+        background-color: transparent;
+        border-style: none;
+        transform: none;
+        width: 100%;
+        margin: 8px 0 8px 0;
+        padding: 0;
+        
+    }
+    
+    .song-cover {
+        border-width: 2px 0px 0px 0px;
+        border-radius: 0;
     }
     
     .card-button {
