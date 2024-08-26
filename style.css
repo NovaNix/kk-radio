@@ -141,6 +141,7 @@
 .card-favorite-button {
     left: 5px;
     font-size: 28px; 
+    right: revert;
 }
 
 .card-favorite-button:hover {
